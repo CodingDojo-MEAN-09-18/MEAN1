@@ -1,4 +1,7 @@
-var myString = "some string content";
+var myString;
+var index;
+
+myString = "some string content";
 
 myString = 456345;
 
@@ -12,22 +15,33 @@ array[0] = 'fish';
 console.log(array.push('cat'));
 
 function myFunc(num, ...rest) {
+  function anotherFunc() {
+    var childStuff = 'child stuff';
+    console.log('inside another func', childContent);
+
+    return childStuff;
+  }
   var childContent = 'some child content';
 
-  // console.log(arguments);
+  // console.log(arguments);\
+  var stuff = anotherFunc();
 
-  console.log(childContent, num, rest);
+
+
+  console.log(childContent, num, rest, stuff);
 }
 
 myFunc(234234, 'more stuff', true, [], {});
-
+// myFunc.anotherFunc();
 
 // console.log(childContent);
+// console.log('index before loop', index);
 
-
-// for (var index = 0; index < array.length; index++) {
+// for (let index = 0; index < array.length; index++) {
 //   console.log('index', array[index]);
 // }
+
+// console.log('index after loop', index);
 
 // for (var index in array) {
 //   console.log('index', array[index]);
@@ -60,3 +74,27 @@ myFunc(234234, 'more stuff', true, [], {});
 //   console.log('key is => ', person[key]);
 // }
 
+function counter() {
+  var count = 0;
+
+  function childScope() {
+    return ++count;
+  }
+
+  return childScope;
+}
+
+counter = counter();
+
+console.log(counter);
+
+console.log(counter());
+// 1
+console.log(counter());
+// 2
+console.log(counter());
+// 3
+console.log(counter());
+// 4
+console.log(counter());
+// 5
