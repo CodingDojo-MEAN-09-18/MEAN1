@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Books</title>
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li>
+        <a href="/authors">Author</a>
+      </li>
+      <li>
+        <a href="/books/new">Create Books</a>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+    <table>
+      <thead>
+        <th>Title</th>
+        <th>Pages</th>
+        <th>Publisher</th>
+        <th>Author</th>
+        <th>Actions</th>
+      </thead>
+
+      <tbody>
+        <% for (const book of books) { %>
+        <tr>
+          <td>
+            <%= book.title %>
+          </td>
+          <td>
+            <%= book.pages %>
+          </td>
+          <td>
+            <%= book.publisher %>
+          </td>
+          <td>
+            <%= book.author.name %>
+          </td>
+          <td><button>Actions</button></td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </main>
+</body>
+
+</html>
